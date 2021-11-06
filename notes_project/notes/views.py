@@ -1,7 +1,13 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework.viewsets import ModelView
 from .models import Note
 from .serializers import NoteSerializer
+
+
+class NoteView(ModelView):
+    queryset = notes = Note.objects.all()
+    serializer_class = NoteSerializer
 
 
 @api_view(['GET'])
